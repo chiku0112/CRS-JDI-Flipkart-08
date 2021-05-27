@@ -15,23 +15,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module-library">
-      <library name="log4j-1.2.11.jar">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/Compressed/log4j-1.2.11.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/CRS-JDI-Flipkart/CRS-JEDI-Flipkart-Java/lib/jar folder/mysql-connector-java-8.0.24/mysql-connector-java-8.0.24.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="log4j-1.2.11" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.25" level="project" />
   </component>
 </module>

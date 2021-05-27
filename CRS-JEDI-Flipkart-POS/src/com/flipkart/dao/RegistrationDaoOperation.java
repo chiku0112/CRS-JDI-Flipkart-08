@@ -3,14 +3,11 @@
  */
 package com.flipkart.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
- 
+import org.apache.log4j.Logger;
 
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Notification;
@@ -37,7 +34,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 	
 	private static volatile RegistrationDaoOperation instance=null;
 	private PreparedStatement stmt = null;
-	
+	private static Logger logger = Logger.getLogger(RegistrationDaoOperation.class);
 	/**
 	 * Default Constructor
 	 */
@@ -90,7 +87,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		}
 		catch (SQLException e) 
 		{
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 		}
 		/*finally
 		{
@@ -128,13 +125,13 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		catch (SQLException se) 
 		{
 
-			System.out.println(se.getMessage());
+			logger.error(se.getMessage());
 
 		} 
 		catch (Exception e)
 		{
 
-			System.out.println(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		/*finally
 		{
@@ -209,8 +206,8 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.getClass());
-			System.out.println(e.getMessage());
+			logger.info(e.getClass());
+			logger.info(e.getMessage());
 		}
 		/*finally
 		{
@@ -253,7 +250,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 			}
 			catch(Exception e)
 			{
-				System.out.println("Exception found" + e.getMessage());
+				logger.info("Exception found" + e.getMessage());
 			}
 			/*finally
 			{
@@ -289,12 +286,12 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e.getErrorCode());
-			System.out.println(e.getMessage());
+			logger.error(e.getErrorCode());
+			logger.info(e.getMessage());
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 		}
 		/*finally
 		{
@@ -333,11 +330,11 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 		}
 		/*finally
 		{
@@ -378,11 +375,11 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		} 
 		catch (SQLException e) 
 		{
-			System.out.println(e.getMessage());
+			logger.error(e.getMessage());
 		} 
 		catch (Exception e)
 		{
-			System.out.println(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		/*finally
 		{
@@ -418,7 +415,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		} 
 		catch (SQLException e) 
 		{
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 
 		} 
 		/*finally
@@ -452,7 +449,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		} 
 		catch (SQLException e) 
 		{
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 
 		} 
 		/*finally
@@ -481,7 +478,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 		} 
 		catch (SQLException e) 
 		{
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 
 		} 
 		/*finally

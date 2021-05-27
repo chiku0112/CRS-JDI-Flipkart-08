@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
- 
+import org.apache.log4j.Logger;
 
 import com.flipkart.bean.Student;
 import com.flipkart.client.CRSApplication;
@@ -27,7 +27,7 @@ import com.flipkart.utils.DBUtils;
 public class StudentDaoOperation implements StudentDaoInterface {
 	
 	private static volatile StudentDaoOperation instance=null;
-	
+	private static Logger logger = Logger.getLogger(StudentOperation.class);
 	/**
 	 * Default Constructor
 	 */
@@ -138,7 +138,7 @@ public class StudentDaoOperation implements StudentDaoInterface {
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		
 		return Integer.parseInt(userId);
@@ -172,7 +172,7 @@ public class StudentDaoOperation implements StudentDaoInterface {
 
 	/**
 	 * Method to check if Student is approved
-	 * @param studentId
+	 * @param userId
 	 * @return boolean indicating if student is approved
 	 */
 	@Override
@@ -192,7 +192,7 @@ public class StudentDaoOperation implements StudentDaoInterface {
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		
 		return false;
