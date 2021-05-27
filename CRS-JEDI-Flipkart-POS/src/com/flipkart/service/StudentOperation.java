@@ -9,7 +9,7 @@ import com.flipkart.constant.Role;
 import com.flipkart.dao.StudentDaoInterface;
 import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.exception.StudentNotRegisteredException;
-
+import org.apache.log4j.Logger;
 /**
  * 
  * @author AyushiDubey
@@ -19,7 +19,7 @@ import com.flipkart.exception.StudentNotRegisteredException;
 public class StudentOperation implements StudentInterface {
 	
 	private static volatile StudentOperation instance=null;
-	  
+	private static Logger logger = Logger.getLogger(CRSApplication.class);
 	StudentDaoInterface studentDaoInterface=StudentDaoOperation.getInstance();
 
 	private StudentOperation()

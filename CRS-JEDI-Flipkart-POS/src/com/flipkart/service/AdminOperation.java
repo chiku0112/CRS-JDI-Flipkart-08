@@ -2,7 +2,7 @@ package com.flipkart.service;
 
 import java.util.List;
 
- 
+import org.apache.log4j.Logger;
 
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
@@ -27,7 +27,7 @@ import com.flipkart.validator.AdminValidator;
 public class AdminOperation implements AdminInterface{
 
 	private static volatile AdminOperation instance = null;
-	
+	private static Logger logger = Logger.getLogger(AdminOperation.class);
 	private AdminOperation()
 	{
 		
@@ -60,7 +60,7 @@ public class AdminOperation implements AdminInterface{
 	public void deleteCourse(String dropCourseCode, List<Course> courseList) throws CourseNotFoundException, CourseNotDeletedException {
 		
 		if(!AdminValidator.isValidDropCourse(dropCourseCode, courseList)) {
-			System.out.println("courseCode: " + dropCourseCode + " not present in catalog!");
+			logger.error("courseCode: " + dropCourseCode + " not present in catalog!");
 			throw new CourseNotFoundException(dropCourseCode);
 		}
 		
@@ -83,7 +83,7 @@ public class AdminOperation implements AdminInterface{
 	public void addCourse(Course newCourse, List<Course> courseList) throws CourseFoundException {
 		
 		if(!AdminValidator.isValidNewCourse(newCourse, courseList)) {
-			System.out.println("courseCode: " + newCourse.getCourseCode() + " already present in catalog!");
+			logger.error("courseCode: " + newCourse.getCourseCode() + " already present in catalog!");
 			throw new CourseFoundException(newCourse.getCourseCode());
 		}
 		
@@ -115,7 +115,7 @@ public class AdminOperation implements AdminInterface{
 	public void approveStudent(int studentId, List<Student> studentList) throws StudentNotFoundForApprovalException {
 		
 		//if(!AdminValidator.isValidUnapprovedStudent(studentId, studentList)) {
-			//System.out.println("studentId: " + studentId + " is already approvet/not-present!");
+			//logger.error("studentId: " + studentId + " is already approvet/not-present!");
 		//	throw new StudentNotFoundForApprovalException(studentId);
 		//}
 		
